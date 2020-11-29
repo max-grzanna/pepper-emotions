@@ -1,42 +1,37 @@
-#from naoqi import ALProxy
-
-#tts = ALProxy("ALTextToSpeech", "10.27.1.105", 9559)
-#tts.say("")
 
 #! /usr/bin/env python
 # -*- encoding: UTF-8 -*-
 
-"""Example: Use getEmotionalReaction Method"""
+"""Example: Use currentPersonState Method"""
 
 import qi
 import argparse
 import sys
 import time
+from naoqi import ALProxy
 
 
 def main(session):
     """
-    This example uses the getEmotionalReaction method.
+    This example uses the currentPersonState method.
     """
-    # Get the services ALMood and ALTextToSpeech.
+    # Get the service ALMood.
+    textSpeach = ALProxy("ALTextToSpeech", "10.27.1.105", 9559)
+    textSpeach.say("Schaue mich an")
+    time.sleep(4)
 
     moodService = session.service("ALMood")
-    tts = session.service("ALTextToSpeech")
-    moodService.subscribe("Tutorial_RecordMood", "Active")
-    # The preloading of all ALMood extractors may take up to 2 secondes:
-    time.sleep(2)
+    moodService.subscribe("Tutorial_GetValence", "Active")
+    # The preloading of all ALMood extractors may take up to 3 secondes:
+    time.sleep(3)
+    print moodService.currentPersonState()["expressions"]
 
-    # The robot tries to provocate an emotion by greeting you
-    tts.say("You look great today !")
-    # The robot will try to analysis your reaction during the next 3 seconds
-    print moodService.getEmotionalReaction()
-
-    moodService.unsubscribe("Tutorial_RecordMood")
-
+    moodService.unsubscribe("Tutorial_GetValence")
+    textSpeach.say("Okay danke!")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--ip", type=str, default="127.0.0.1",
+    parser.add_argument("--ip", type=str, default="10.27.1.105",
                         help="Robot IP address. On robot or Local Naoqi: use '127.0.0.1'.")
     parser.add_argument("--port", type=int, default=9559,
                         help="Naoqi port number")
