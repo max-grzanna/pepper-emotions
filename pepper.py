@@ -35,7 +35,7 @@ def main(session):
 
         def activateUser(self):
             self.tablet.showWebview(
-                "https://i.ibb.co/XDJYQgw/CFED5845-9-ECE-44-FF-B855-1-A6210978-CE7.jpg")
+                "https://ibb.co/2ZhGCBh")
             time.sleep(2)
             self.textToSpeech.say("Stelle dich vor mich, und schaue mich an.")
 
@@ -71,11 +71,11 @@ def main(session):
     # Filmvorschläge  erstellen
 
     harryPotter = Movie("Harry Potter",
-                        "https://www.tagesspiegel.de/images/heprodimagesfotos8412019062210wi6_359_1_20190621150050946-jpg/24481576/3-format43.jpg")
+                     "https://bit.ly/3oo5swb")
     rushHour = Movie("Rush Hour",
-                     "https://i3-img.kabeleins.de/pis/ezone/29e4qgELB38wdEB-ZftIYFPQSp-HxjRVj8ghGONpO6WKv8N5ookTKLFQzHOkL518VwTpbFVddOIjbc3JVo2-7R7fmvTtzGMvFWlVp4gynw/profile:mag-996x562")
+                     "https://bit.ly/3lDGhnL")
     titanic = Movie("Titanic",
-                    "https://scontent-frt3-2.xx.fbcdn.net/v/t1.0-9/117357203_3544561898896579_7992014078248731844_n.jpg?_nc_cat=101&ccb=2&_nc_sid=6e5ad9&_nc_ohc=GQf5LgtVedMAX9YlSjZ&_nc_ht=scontent-frt3-2.xx&oh=d49e1eae9ad11a9565aa2ada781bafac&oe=5FE8087B")
+                    "https://bit.ly/36HbP7X")
 
     movieList.append(harryPotter)
     movieList.append(rushHour)
@@ -84,12 +84,12 @@ def main(session):
     # MovieDb erstellen
 
     movie1 = Movie("Terminator",
-                   "https://images.hdqwalls.com/download/arnold-schwarzenegger-terminator-1280x800.jpg","", 2.0)
-    movie2 = Movie("Borat",
-                   "https://images.wallpapersden.com/image/download/sacha-baron-cohen-as-borat-sagdiyev_bGdubmaUmZqaraWkpJRmZ21lrW1lZQ.jpg",
-                   4.0)
+                   "https://bit.ly/3gcehX2","", 2.0)
+    movie2 = Movie("Boraat",
+                   "https://bit.ly/3qvjii3","",
+                   3.0 )
     movie3 = Movie("König der Löwen",
-                   "https://s1.1zoom.me/big0/806/313029-Sepik.jpg", "", 1.0)
+                   "https://bit.ly/3qo1h5v", "", 1.0)
 
     # Objekte
     movieDB.append(movie1)
