@@ -34,10 +34,9 @@ def main(session):
             self.moodService = session.service("ALMood")
 
         def activateUser(self):
-            self.tablet.showWebview(
-                "https://ibb.co/2ZhGCBh")
             time.sleep(2)
             self.textToSpeech.say("Stelle dich vor mich, und schaue mich an.")
+            Pepper.openURL('https://bit.ly/3a37n5i')
 
             time.sleep(3)
 
@@ -71,7 +70,7 @@ def main(session):
     # Filmvorschläge  erstellen
 
     harryPotter = Movie("Harry Potter",
-                     "https://bit.ly/3oo5swb")
+                        "https://bit.ly/3oo5swb")
     rushHour = Movie("Rush Hour",
                      "https://bit.ly/3lDGhnL")
     titanic = Movie("Titanic",
@@ -84,10 +83,10 @@ def main(session):
     # MovieDb erstellen
 
     movie1 = Movie("Terminator",
-                   "https://bit.ly/3gcehX2","", 2.0)
-    movie2 = Movie("Boraat",
-                   "https://bit.ly/3qvjii3","",
-                   3.0 )
+                   "https://bit.ly/3gcehX2", "", 2.0)
+    movie2 = Movie("Borat",
+                   "https://bit.ly/3qvjii3", "",
+                   3.0)
     movie3 = Movie("König der Löwen",
                    "https://bit.ly/3qo1h5v", "", 1.0)
 
@@ -129,6 +128,7 @@ def main(session):
     rating = rating / len(movieList)
     print ("erreichtes Rating: " + str(rating))
     Pepper.say("Deine Auswahl ")
+    Pepper.openURL('https://bit.ly/33YNV67')
     for movie in movieList:
         Pepper.say("Deine Reaktion zum Film " + movie.titel + " ist" + movie.emotion)
 
@@ -140,10 +140,14 @@ def main(session):
                 Pepper.openURL(movie.link)
                 Pepper.say("Der Film " + movie.titel + " könnte dir ebenfalls gefallen.")
 
+    time.sleep(3)
+    Pepper.say('Vielen Dank für deine Aufmerksamkeit.')
+    Pepper.openURL('https://bit.ly/2LonHDv')
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--ip", type=str, default="10.27.1.101",
+    parser.add_argument("--ip", type=str, default="10.27.1.120",
                         help="Robot IP address. On robot or Local Naoqi: use '10.27.1.101'.")
     parser.add_argument("--port", type=int, default=9559,
                         help="Naoqi port number")
