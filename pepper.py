@@ -11,7 +11,7 @@ import webbrowser
 
 
 def main(session):
-    moodService = session.service("ALMood")
+
 
     numSuggestions = 1
     movieList = []
@@ -37,7 +37,6 @@ def main(session):
             time.sleep(2)
             self.textToSpeech.say("Stelle dich vor mich, und schaue mich an.")
             Pepper.openURL('https://bit.ly/3a37n5i')
-
             time.sleep(3)
 
         def start(self):
@@ -136,7 +135,7 @@ def main(session):
         Pepper.say("Dein Filmgeschmack ist nichts halbes und nichts ganzes.")
     else:
         for movie in movieDB:
-            if movie.rating >= rating:
+            if movie.rating <= rating:
                 Pepper.openURL(movie.link)
                 Pepper.say("Der Film " + movie.titel + " könnte dir ebenfalls gefallen.")
 
